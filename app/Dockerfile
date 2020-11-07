@@ -14,7 +14,9 @@ RUN python -m pip install \
         realpython-reader
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-
+RUN apt-get update
+RUN apt install libgl1-mesa-glx -y
+RUN apt-get install libglib2.0-0 -y
 COPY . /app
 
 
