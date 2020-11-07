@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+    <title>Stamp</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="src/index.js"></script>
+  </head>
+  <body>
+    <h1>STAMP</h1>
+
+    <div id="wrapper">
+
+      <div id="top-section">
+        <p> Explore all around the world from the comfort of your own home! </p>
+        <p> All processing happens in your web browser.<br />Your webcam data does
+          not leave your computer. </p>
+      </div>
+      <div id="mid-section">
+        <button id="start" >Start</button>
+        <video id="webcam"></video>
+        <p id="safari-warning" hidden="true">
+          It looks like you're using Safari! If you're not hearing any audio,
+          select the "Safari" menu, then "Settings for This Website". Set the
+          "Auto-Play" dropdown to "Allow All Auto-Play"
+          <a href="#" id="close-safari" role="button">[x]</a>   
+        </p>
+      </div>
+
+      <div id="bottom-section">
+        
+        <p><span id="countdown-display">0:00</span> until your next trip!</p>
+
+        <div id="work-section">
+          <h1 id="work-header"> Work Time </h1>
+          <div id="work-buttons">
+            <button class="work-minutes" id="demo" value="2">Demo</button>
+            <button class="work-minutes" id="25-min" value="25">25 Minutes</button>
+            <button class="work-minutes" id="55-min" value="55">55 Minutes</button>
+            <button class="work-minutes" id="options">Options</button>
+          </div>
+        </div>
+
+        <div id="break-section">
+          <h1 id="break-header"> Break Time </h1>
+          <div class="break-buttons">
+            <button class="break-minutes" id="demo" value="1">Demo</button>
+            <button class="break-minutes" id="5-min" value="5">5 Minutes</button>
+            <button class="break-minutes"  id="10-min" value="10">10 Minutes</button>
+            <button class="break-minutes" id="options">Options</button>
+          </div>
+        </div>
+    </div>
+
+    <div id="options">
+      <h2>Options</h2>
+
+        <h3>Sound Effect</h3>
+
+        <div>
+          <input
+            type="radio"
+            class="sfx"
+            id="honk"
+            name="sfx"
+            value="audio/honk.mp3"
+            checked
+          />
+          <label for="honk">Honk</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            class="sfx"
+            id="no"
+            name="sfx"
+            value="audio/no.mp3"
+          />
+          <label for="no">No</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            class="sfx"
+            id="error"
+            name="sfx"
+            value="audio/error.mp3"
+          />
+          <label for="error">Windows XP Error</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            class="sfx"
+            id="ohno"
+            name="sfx"
+            value="audio/ohno.mp3"
+          />
+          <label for="ohno">Oh No</label>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

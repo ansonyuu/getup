@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+</style>
+
+</head>
+<body>
+
+    <p><span id="countdown-display">0:00</span> until your next trip!</p>
+
+        <div id="work-section">
+          <h1 id="work-header"> Work Time </h1>
+          <div class="work-buttons">
+            <button class="work-minutes" id="demo" data-quantity="2">Demo</button>
+            <button class="work-minutes" id="25-min" data-quantity="25">25 Minutes</button>
+            <button class="work-minutes" id="55-min" data-quantity="55">55 Minutes</button>
+            <button class="work-minutes" id="options">Options</button>
+          </div>
+        </div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+let workTimers = document.querySelectorAll("input.work-timer");
+
+workTimers.addEventListener("click", () => {
+    document.getElementById("work-section").hidden = true;
+        const value = e.target.value;
+        console.log("Setting value for work timer", value);
+        currentWorkTimer = value;
+        SetCountdown(currentWorkTimer);
+});
+
+document.querySelectorAll("input.work-timer").forEach(el => {
+    el.addEventListener("change", e => {
+        const value = e.target.value;
+        console.log("Setting value for work timer", value);
+        currentWorkTimer = value;
+
+    });
+});
+
+document.querySelectorAll("input.sfx").forEach(el => {
+    el.addEventListener("change", e => {
+        const value = e.target.value;
+        console.log("Setting value", value);
+        currentAudio = value;
+        playAudio();
+    });
+});
+});
+
+// function AddMinutesToDate(date, minutes) {
+//     return new Date(date + (minutes * 60000));
+// }
+
+// var now = new Date().getTime();
+// var next = AddMinutesToDate(now,5)
+
+// // Update the count down every 1 second
+// var x = setInterval(function() {
+  
+//   // Find the distance between now and the count down date
+//   var distance = next - (new Date().getTime());
+    
+//   // Time calculations for days, hours, minutes and seconds
+//   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+//   // Output the result in an element with id="demo"
+//   document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+    
+//   // If the count down is over, write some text 
+//   if (distance < 0) {
+//     clearInterval(x);
+//     document.getElementById("demo").innerHTML = "EXPIRED";
+//   }
+// }, 1000);
+
+</script>
+
+</body>
+</html>
+
+<!-- 
+<div>
+    <h3>Work block time</h3>
+
+    <div>
+      <input type="radio" 
+      class="work-timer" 
+      id="time-demo" 
+      name="work-timer"
+      value="1"
+      checked 
+    />
+      <label for="timer">Demo</label> <br />
+
+      <input type="radio" 
+      class="work-timer" 
+      #previously play sound
+      id="time-25" 
+      name="work-timer"
+      value="25"
+    />
+      <label for="work-timer">25 minutes</label> <br />
+
+      <input type="radio" 
+      class="work-timer" 
+      #previously play sound and show alert
+      id="time-55" 
+      name="work-timer" 
+      value="55"/>
+      <label for="work-timer">55 minutes</label>
+    
+    <h3>Break time</h3>
+
+      <div>
+        <input type="radio" 
+        class="break-timer" 
+        #previously play sound
+        id="time-demo" 
+        name="break-timer"
+        value="1"
+        checked 
+      />
+        <label for="break-timer">Demo</label> <br />
+
+        <input type="radio" 
+        class="break-timer" 
+        id="time-25" 
+        name="break-timer"
+        value="25"
+      />
+        <label for="break-timer">5 minutes</label> <br />
+
+        <input type="radio" 
+        class="break-timer" 
+        id="time-55" 
+        name="break-timer" 
+        value="55"/>
+        <label for="break-timer">10 minutes</label> -->

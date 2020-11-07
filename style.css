@@ -1,0 +1,23 @@
+@font-face {
+    font-family: Jazmin;
+    src: url(public/jazmin.otf);
+  }
+
+body {
+    background-color: #fdf6e3;
+    font-family: Jazmin, sans-serif;
+    font-size: 1.3em;
+    position: relative;
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 1800px) {
+    #options {
+      position: absolute;
+      right: 10%;
+      top: 220px;
+      width: 400px;
+      text-align: left;
+    }
+  }
+
