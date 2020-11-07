@@ -1,4 +1,4 @@
-# GETUP! - An App for the Passively Active
+# STAMP - Around the World in a Corner
 Also a SYDE/BME hackathon project
 
 
