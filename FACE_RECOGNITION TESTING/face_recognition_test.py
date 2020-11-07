@@ -4,13 +4,9 @@ import face_recognition
 import cv2
 import numpy as np
 
+#declare livestream
 video_capture = cv2.VideoCapture(0)
 
-
-# Initialize some variables
-face_locations = []
-face_encodings = []
-process_this_frame = True
 
 while True:
     # Grab a single frame of video
