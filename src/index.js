@@ -110,6 +110,12 @@ function SetCountdown(timeInput){
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("countdown-display").innerHTML = "EXPIRED";
+
+        if (currentlyWorking == true){
+              
+        } else {
+            document.getElementById("work-section").show = true;  
+        }
     }
     }, 1000);
 }
@@ -137,10 +143,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("button.work-minutes").forEach(el => {
         el.addEventListener("click", e => {
             document.getElementById("work-section").hidden = true;
-            document.getElementById("break-section").show = true;
+            document.getElementById("break-section").hidden = true;
             const value = e.target.value;
             console.log(value);
             currentWorkTimer = value;
+            currentlyWorking = true;
             SetCountdown(currentWorkTimer);
         });
 
@@ -149,11 +156,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("button.break-minutes").forEach(el => {
         el.addEventListener("click", e => {
             document.getElementById("break-section").hidden = true;
-            document.getElementById("work-section").show = true;
+            document.getElementById("work-section").hidden = true;
             const value = e.target.value;
             console.log(value);
             currentBreakTimer = value;
+            currentlyWorking = false;
             SetCountdown(currentBreakTimer);
+            
         });
 
     });
