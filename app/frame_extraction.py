@@ -1,6 +1,7 @@
 #code inspired by https://medium.com/datadriveninvestor/video-streaming-using-flask-and-opencv-c464bf8473d6
 import face_recognition
 import cv2
+#define camera class
 class Camera(object):
 
     def __init__(self):
@@ -12,11 +13,8 @@ class Camera(object):
         self.video.release()
 
 
-
+    #function that 
     def extract_frames(self):
-        #declare livestream
- 
-
 
         # Grab a single frame of video
         ret, frame = self.video.read()
@@ -25,14 +23,9 @@ class Camera(object):
         # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
         rgb_small_frame = frame[:, :, ::-1]
 
-        # Only process every other frame of video to save time
-
-
         face_locations = face_recognition.face_locations(rgb_small_frame,model="cnn")
 
-        if not face_locations:
-            print("User missing")
-        # Display the results
+        #loop thru the face locations and make rectangles
         for (top, right, bottom, left) in face_locations:
             # Scale back up face locations since the frame we detected in was scaled to 1/4 size
             
@@ -44,12 +37,34 @@ class Camera(object):
             font = cv2.FONT_HERSHEY_DUPLEX
             cv2.putText(frame, "Loser" ,  (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
 
-        # Display the resulting image
-        cv2.imshow('Video', frame)
 
-        # Release handle to the webcam
+        #convert the frame into a jpeg file
         ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg.tobytes()
+
+    def is_user_on_screen(self):
+                #declare livestream
+        """ Checks whether or not a user is on the screen"""
+
+
+        # Grab a single frame of video
+        ret, frame = self.video.read()
+
+
+        # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
+        rgb_small_frame = frame[:, :, ::-1]
+
+        face_locations = face_recognition.face_locations(rgb_small_frame,model="cnn")
+
+        #if they are not on the screen return false
+        if not face_locations:
+            return False
+        
+        #otherwise return true
+        return True
+        
+
+
 
 
 
