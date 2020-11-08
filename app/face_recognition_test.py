@@ -8,7 +8,7 @@ def capture():
     import cv2
     import numpy as np
     #declare livestream
-    video_capture = cv2.VideoCapture(0)
+    video_capture = cv2.VideoCapture(2)
 
 
     while True:

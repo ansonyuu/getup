@@ -18,7 +18,7 @@ RUN apt-get update
 RUN apt install libgl1-mesa-glx -y
 RUN apt-get install libglib2.0-0 -y
 COPY . /app
-
+EXPOSE 5000
 
 ENTRYPOINT [ "python3" ]
-CMD [ "app.py" ]
+CMD [ "app.py"]

@@ -36,6 +36,6 @@ def screen():
 
 if __name__ == '__main__':
     # defining server ip address and port
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=80)
 
 
