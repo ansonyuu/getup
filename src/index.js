@@ -53,12 +53,11 @@ function startTesting(video, interval = 100) {
         const isTouching = await checkFaceTouching(video);
         const now = new Date();
         if (isTouching) {
-            if (document.getElementById("play-sound").checked) {
                 playAudio();
-            }
             document.body.classList.add("touching");
             title.innerText = "⚠️ Go back to walking, you're not there yet ⚠️";
             dateOfLastTouch = now;
+
             // alert() calls are "blocking" within the current thread
             // This is a very sloppy semaphore lock to try to stop us from piling up alerts.
             const showAlerts = document.getElementById("show-alert").checked;
@@ -68,6 +67,7 @@ function startTesting(video, interval = 100) {
                 alertIsVisible = false;
             }
         }
+
         else {
             document.body.classList.remove("touching");
         }
@@ -83,7 +83,6 @@ function stopTesting() {
     clearTimeout(testingTimeout);
     clearTimeout(timerTimeout);
 }
-
 
 function AddMinutesToDate(date, minutes) {
     return new Date(date + (minutes * 60000));
@@ -104,26 +103,47 @@ function SetCountdown(timeInput){
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
     // Output the result in an element with id="demo"
-    document.getElementById("countdown-display").innerHTML = minutes + "m " + seconds + "s ";
+    document.getElementById("countdown-display").hidden = false;
+    document.getElementById("countdown-display").innerHTML = minutes + "m " + seconds + "s until your next trip!";
         
     // If the count down is over, write some text 
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("countdown-display").innerHTML = "EXPIRED";
+
+        document.getElementById("countdown-display").hidden = true;
 
         if (currentlyWorking == true){
-              
+            document.getElementById("break-section").hidden = false;
         } else {
-            document.getElementById("work-section").show = true;  
-        }
-    }
-    }, 1000);
-}
+            document.getElementById("work-section").hidden = false;
+            ShowPostcard();
 
+        }
+    }}, 1000);
+}
 
 async function checkFaceTouching(video) {
 
 }
+
+function ShowPostcard(){
+    var postcardModal = document.getElementById("postcard-modal");
+    var span = document.getElementsByClassName("close")[0];
+    postcardModal.style.display = "block";
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        postcardModal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == postcardModal) {
+        postcardModal.style.display = "none";
+    }
+    } 
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -175,4 +195,26 @@ document.addEventListener("DOMContentLoaded", () => {
             playAudio();
         });
     });
+
+    var optionsModal = document.getElementById("options-modal");
+    var btn = document.getElementById("options");
+    var span = document.getElementsByClassName("close")[0];
+    
+    btn.onclick = function() {
+      optionsModal.style.display = "block";
+      console.log("it's clicking")
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      optionsModal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == optionsModal) {
+        optionsModal.style.display = "none";
+      }
+    } 
+     
 });
