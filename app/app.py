@@ -34,13 +34,11 @@ def feed():
 def screen():
     return present(Camera())
 
-@app.route('/ping')
-def ping():
-    return "oop"
+
 
 
 if __name__ == '__main__':
     # defining server ip address and port
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', debug=True, use_reloader=False)
 
 

@@ -22,7 +22,7 @@ def capture():
         # Only process every other frame of video to save time
 
 
-        face_locations = face_recognition.face_locations(rgb_small_frame)
+        face_locations = face_recognition.face_locations(rgb_small_frame,"cnn")
 
         if not face_locations:
             print("User missing")
