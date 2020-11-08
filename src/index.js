@@ -6,6 +6,8 @@ let currentAudio = "audio/honk.mp3";
 let audioLastPlayed = new Date();
 let audioThrottle = 500;
 
+console.log("is this working lol")
+
 
 function startVideoStream() {
     if (!navigator.mediaDevices.getUserMedia)

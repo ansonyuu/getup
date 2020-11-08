@@ -23,7 +23,7 @@ class Camera(object):
         # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
         rgb_small_frame = frame[:, :, ::-1]
 
-        face_locations = face_recognition.face_locations(rgb_small_frame,model="cnn")
+        face_locations = face_recognition.face_locations(rgb_small_frame)
 
         #loop thru the face locations and make rectangles
         for (top, right, bottom, left) in face_locations:
@@ -54,7 +54,7 @@ class Camera(object):
         # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
         rgb_small_frame = frame[:, :, ::-1]
 
-        face_locations = face_recognition.face_locations(rgb_small_frame,model="cnn")
+        face_locations = face_recognition.face_locations(rgb_small_frame,"cnn")
 
         #if they are not on the screen return false
         if not face_locations:
