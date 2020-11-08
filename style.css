@@ -4,28 +4,37 @@
 }
 
 body {
-  background-color: #fdf6e3;
+  background-color: white;
   font-family: Jazmin, sans-serif;
   font-size: 1.3em;
   position: relative;
   text-align: center;
 }
+
+/* text and button content */
+
+h1 {
+  font-size: 3em;
+  vertical-align: top;
+  
+  
+}
 #video-frame img {
-width: 600px;
-height: auto;
-position: relative;
+  width: 600px;
+  height: auto;
+  position: relative;
 }
 
 #webcam {
-position: absolute;
-text-align: center;
-width: 600px;
-height: 300px;
+  position: absolute;
+  text-align: center;
+  width: 600px;
+  height: 300px;
 }
 
 /* button styling starts here */
 
-#start, .work-minutes, .break-minutes{
+#start, #options, .work-minutes, .break-minutes{
 background-color: #96712A; 
 font-family: Jazmin;
 border: none;
@@ -37,8 +46,6 @@ text-decoration: none;
 display: inline-block;
 font-size: 16px;
 }
-
-
 
 /* modal styling starts here */
 .modal {

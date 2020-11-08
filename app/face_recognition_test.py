@@ -8,7 +8,7 @@ def capture():
     import cv2
     import numpy as np
     #declare livestream
-    video_capture = cv2.VideoCapture(2)
+    video_capture = cv2.VideoCapture(0)
 
 
     while True:
@@ -22,7 +22,7 @@ def capture():
         # Only process every other frame of video to save time
 
 
-        face_locations = face_recognition.face_locations(rgb_small_frame,model="cnn")
+        face_locations = face_recognition.face_locations(rgb_small_frame)
 
         if not face_locations:
             print("User missing")
@@ -49,3 +49,4 @@ def capture():
     video_capture.release()
     cv2.destroyAllWindows()
 
+capture()
