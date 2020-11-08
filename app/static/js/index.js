@@ -144,9 +144,10 @@ function ShowPostcard(){
     } 
 }
 
+window.onload=function(){
 
 document.addEventListener("DOMContentLoaded", () => {
-
+    
     document.getElementById("start").addEventListener("click", () => {
         document.getElementById("start").hidden = true;
         startVideoStream();
@@ -218,3 +219,5 @@ document.addEventListener("DOMContentLoaded", () => {
     } 
      
 });
+
+}

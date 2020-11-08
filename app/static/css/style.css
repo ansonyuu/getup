@@ -14,13 +14,22 @@ body {
 /* text and button content */
 
 h1 {
-  font-size: 3em;
+  font-size: 4em;
   vertical-align: top;
-  
-  
+  text-align: left;
+  padding-left: 0.75em;
 }
+
+h2{
+  font-size: 1.75em;
+}
+
+#countdown-display{
+  font-size: 8em;
+}
+
 #video-frame img {
-  width: 600px;
+  width: 700px;
   height: auto;
   position: relative;
 }

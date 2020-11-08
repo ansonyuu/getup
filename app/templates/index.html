@@ -5,9 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
     <title>Stamp</title>
-
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
-  
   </head>
   <body>
     <h1>STAMP</h1>
@@ -16,7 +14,7 @@
 
       <div id="top-section">
         <p> Explore all around the world from the comfort of your own home! </p>
-        <p> All processing happens in your web browser.<br />Your webcam data does
+        <p> All processing happens in your web browser. Your webcam data does
           not leave your computer. </p>
       </div>
       <div id="mid-section">
@@ -38,7 +36,7 @@
         <span id="countdown-display">0:00</span>
 
         <div id="work-section">
-          <h1 id="work-header"> Work Time </h1>
+          <h2 id="work-header"> Work Time </h2>
           <div id="work-buttons">
             <button class="work-minutes" id="demo" value="0.05">Demo</button>
             <button class="work-minutes" id="25-min" value="25">25 Minutes</button>
@@ -47,7 +45,7 @@
         </div>
 
         <div id="break-section">
-          <h1 id="break-header"> Break Time </h1>
+          <h2 id="break-header"> Break Time </h2>
           <div class="break-buttons">
             <button class="break-minutes" id="demo" value="0.05">Demo</button>
             <button class="break-minutes" id="5-min" value="5">5 Minutes</button>
@@ -100,6 +98,6 @@
         </div>
       </div>
     </div>
-  </body>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+  </body> 
 </html>

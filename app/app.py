@@ -3,7 +3,7 @@ from flask import Flask, request, render_template, Response, jsonify
 from frame_extraction import Camera
 
 
-app = Flask(__name__, template_folder='./templates', static_folder='./static')
+app = Flask(__name__, template_folder='./templates', static_folder='./static', static_url_path='')
 
 @app.route('/')
 #render webpage
@@ -19,9 +19,9 @@ def gen(camera):
                 b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
 #function that determines if the user is in front of the camera
-@app.route('/api', methods=['POST'])
+@app.route('/present', method=['POST'])
 def present(camera):
-    return jsonify({"user": camera.is_user_on_screen()})
+    return jsonify({ "user" : camera.is_user_on_screen()})
 
 #define camera feed that will be displayed on the page
 @app.route('/feed')

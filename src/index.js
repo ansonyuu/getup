@@ -6,8 +6,6 @@ let currentAudio = "audio/honk.mp3";
 let audioLastPlayed = new Date();
 let audioThrottle = 500;
 
-console.log("is this working lol")
-
 
 function startVideoStream() {
     if (!navigator.mediaDevices.getUserMedia)
@@ -318,8 +316,6 @@ function startTesting(video, interval = 100) {
         else {
             document.body.classList.remove("touching");
         }
-        
-        const differenceInSeconds = Math.floor((now.getTime() - dateOfLastTouch.getTime()) / 1000);
         
         testingTimeout = setTimeout(loop, interval);
 
