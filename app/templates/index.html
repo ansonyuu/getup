@@ -6,9 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
     <title>Stamp</title>
 
-    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='css/style.css')}}">
-
-    <script type="text/javascript" src="{{ static\js\index.js }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+  
   </head>
   <body>
     <h1>STAMP</h1>
@@ -21,7 +20,6 @@
           not leave your computer. </p>
       </div>
       <div id="mid-section">
-        <button id="start" >Start</button>
         <img id="bg" src="{{ url_for('feed') }}">
         <p id="safari-warning" hidden="true">
           It looks like you're using Safari! If you're not hearing any audio,
@@ -102,7 +100,6 @@
         </div>
       </div>
     </div>
-
-
   </body>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
 </html>

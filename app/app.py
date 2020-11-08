@@ -1,9 +1,9 @@
 #inspired by https://medium.com/datadriveninvestor/video-streaming-using-flask-and-opencv-c464bf8473d6
-from flask import Flask, render_template, Response, jsonify
+from flask import Flask, request, render_template, Response, jsonify
 from frame_extraction import Camera
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='./templates', static_folder='./static')
 
 @app.route('/')
 #render webpage
@@ -19,22 +19,20 @@ def gen(camera):
                 b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
 #function that determines if the user is in front of the camera
+@app.route('/api', methods=['POST'])
 def present(camera):
-    return jsonify(camera.is_user_on_screen())
-
-
+    return jsonify({"user": camera.is_user_on_screen()})
 
 #define camera feed that will be displayed on the page
 @app.route('/feed')
 def feed():
     return Response(gen(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
 #this is route where it will give you a json response depending on if you are in front of the camera or not.
 @app.route('/screen')
 def screen():
     return present(Camera())
-
-
 
 
 if __name__ == '__main__':
