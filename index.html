@@ -14,12 +14,15 @@
     <div id="wrapper">
 
       <div id="top-section">
-        <p> Explore all around the world from the comfort of your own home! </p>
+        <!-- <p> Explore all around the world from the comfort of your own home! </p>
         <p> All processing happens in your web browser.<br />Your webcam data does
-          not leave your computer. </p>
+          not leave your computer. </p> -->
       </div>
       <div id="mid-section">
-        <button id="start" >Start</button>
+        <div id="video-frame">
+          <img src="stamp-frame.png">
+        </div>
+        <button id="start" >start</button>
         <video id="webcam"></video>
         <p id="safari-warning" hidden="true">
           It looks like you're using Safari! If you're not hearing any audio,
@@ -31,25 +34,26 @@
 
       <div id="bottom-section">
         
-        <p><span id="countdown-display">0:00</span> until your next trip!</p>
+        <h2><span id="countdown-display">0:00</span></h2>
+        <p>until your next trip!</p>
 
         <div id="work-section">
           <h1 id="work-header"> Work Time </h1>
           <div id="work-buttons">
-            <button class="work-minutes" id="demo" value="2">Demo</button>
-            <button class="work-minutes" id="25-min" value="25">25 Minutes</button>
-            <button class="work-minutes" id="55-min" value="55">55 Minutes</button>
-            <button class="work-minutes" id="options">Options</button>
+            <button class="work-minutes" id="demo" value="2">demo</button>
+            <button class="work-minutes" id="25-min" value="25">25 min</button>
+            <button class="work-minutes" id="55-min" value="55">55 min</button>
+            <button class="work-minutes" id="options">options</button>
           </div>
         </div>
 
         <div id="break-section">
           <h1 id="break-header"> Break Time </h1>
           <div class="break-buttons">
-            <button class="break-minutes" id="demo" value="1">Demo</button>
-            <button class="break-minutes" id="5-min" value="5">5 Minutes</button>
-            <button class="break-minutes"  id="10-min" value="10">10 Minutes</button>
-            <button class="break-minutes" id="options">Options</button>
+            <button class="break-minutes" id="demo" value="1">demo</button>
+            <button class="break-minutes" id="5-min" value="5">5 min</button>
+            <button class="break-minutes"  id="10-min" value="10">10 min</button>
+            <button class="break-minutes" id="options">options</button>
           </div>
         </div>
     </div>
